@@ -1,0 +1,26 @@
+body {
+    height: 100vh; /* full viewport height */
+    margin: 0;
+    background: url("../Assets/MacBook Pro 16_ - 4.png") no-repeat center center fixed;
+    background-size: cover; /* makes it fit full BG */
+}
+
+.top-bar{
+    height: 10vh;
+    width: 100%;
+}
+
+.bottom-part{
+    display: flex;
+}
+
+.leftpart{
+    height: 90vh;
+    width: 20%;
+}
+
+.rightpart{
+    height: 90vh;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.219);
+}
