@@ -1,14 +1,13 @@
-/* Full Background */
+
 body {
   margin: 0;
-  height: 100vh;
-  width: 100%;
   font-family: Arial, sans-serif;
   background: url("../Assets/MacBook Pro 16_ - 4.png") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 /* Header */
@@ -20,30 +19,27 @@ header {
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.header-logo {
-  width: 50px;
-  height: auto;
-  cursor: pointer;
-}
-
 header h1 {
-  flex: 1;
-  text-align: center;
   margin: 0;
   font-size: 20px;
 }
 
+.header-logo {
+  width: 150px;
+  cursor: pointer;
+}
 
 /* Main Container */
 #container {
   width: 90%;
-  max-width: 420px;
+  max-width: 800px;
   margin-top: 30px;
   padding: 35px 30px;
   border-radius: 20px;
@@ -51,15 +47,42 @@ header h1 {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
-/* Input fields */
-#container input {
+/* Form Grid */
+.form-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Left Column (Radio Buttons) */
+.left-column h3 {
+  margin-top: 0;
+}
+
+.left-column p {
+  margin: 10px 0 5px 0;
+  font-weight: bold;
+}
+
+.left-column label {
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.left-column input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Right Column (Inputs & Button) */
+.right-column input[type="number"] {
   width: 90%;
   padding: 12px;
   margin: 10px 0;
@@ -71,8 +94,7 @@ header h1 {
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
-/* Button */
-#container button {
+.right-column button {
   width: 100%;
   padding: 12px;
   margin-top: 15px;
@@ -86,31 +108,25 @@ header h1 {
   transition: background 0.3s ease;
 }
 
-#container button:hover {
+.right-column button:hover {
   background: #0d3c7b;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  header {
-    padding: 12px 15px;
+@media (max-width: 800px) {
+  .form-grid {
+    flex-direction: column;
   }
 
-  .header-logo {
-    width: 40px;
+  header {
+    padding: 12px 15px;
   }
 
   header h1 {
     font-size: 18px;
   }
 
-  #container {
-    padding: 25px 20px;
-  }
-
-  #container input,
-  #container button {
-    font-size: 14px;
-    padding: 10px;
+  .header-logo {
+    width: 40px;
   }
 }

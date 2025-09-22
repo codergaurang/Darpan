@@ -7,25 +7,62 @@
   <link rel="stylesheet" href="drapanform.css">
 </head>
 <body>
-    <!-- Header -->
-<header>
-  <a href="dashboard.html">
-    <img src="../Assets/PSL_bitlogo.png" alt="PSL Logo" class="header-logo">
-  </a>
-  <h1>Study Progress</h1>
-</header>
+  
+  <header>
+    <h1>Study Progress</h1>
+    <a href="dashboard.html">
+      <img src="../Assets/PSL_bitlogo.png" alt="PSL Logo" class="header-logo">
+    </a>
+  </header>
 
-
-  <!-- Form Container -->
+  
   <div id="container">
-    <form>
-      <input type="number" placeholder="Core Study Hours" required>
-      <input type="number" placeholder="Number of MCQs Solved" required>
-      <input type="number" placeholder="Number of Pages Read" required>
-      <input type="number" placeholder="Hours Spent on Revision" required>
-      <input type="number" placeholder="% of Target Completed" required>
-      <!-- You can add more inputs here and the layout will remain responsive -->
-      <button type="submit">Submit</button>
+    <form class="form-grid">
+      <!-- Left Column: Additional Info -->
+      <div class="left-column">
+        <h3>Additional Info</h3>
+
+        <p>Sleep Hours:</p>
+        <label><input type="radio" name="sleep" value="0">0</label>
+        <label><input type="radio" name="sleep" value="5">5</label>
+        <label><input type="radio" name="sleep" value="10">10</label>
+
+        <p>Physical Activity:</p>
+        <label><input type="radio" name="physical" value="0">0</label>
+        <label><input type="radio" name="physical" value="5">5</label>
+        <label><input type="radio" name="physical" value="10">10</label>
+
+        <p>Mental Fitness:</p>
+        <label><input type="radio" name="mental" value="0">0</label>
+        <label><input type="radio" name="mental" value="5">5</label>
+        <label><input type="radio" name="mental" value="10">10</label>
+
+        <p>Math MCQs:</p>
+        <label><input type="radio" name="math" value="0">0</label>
+        <label><input type="radio" name="math" value="5">5</label>
+        <label><input type="radio" name="math" value="10">10</label>
+
+        <p>Chem MCQs:</p>
+        <label><input type="radio" name="chem" value="0">0</label>
+        <label><input type="radio" name="chem" value="5">5</label>
+        <label><input type="radio" name="chem" value="10">10</label>
+
+        <p>Eng MCQs:</p>
+        <label><input type="radio" name="eng" value="0">0</label>
+        <label><input type="radio" name="eng" value="5">5</label>
+        <label><input type="radio" name="eng" value="10">10</label>
+      </div>
+
+      <!-- Right Column: Core Fields -->
+      <div class="right-column">
+        <input type="number" placeholder="Core Study Hours" required>
+        <input type="number" placeholder="Number of MCQs Solved" required>
+        <input type="number" placeholder="Number of Pages Read" required>
+        <input type="number" placeholder="Hours Spent on Revision" required>
+        <input type="number" placeholder="% of Target Completed" required>
+
+        <button type="submit">Submit</button>
+      </div>
     </form>
   </div>
 </body>
