@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+}
+
+#container{
+    width: 50%;
+    background-color: aqua;
+    margin-left: 25%;
+}
