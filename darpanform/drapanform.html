@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darpan form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Progress Form</title>
+  <link rel="stylesheet" href="drapanform.css">
 </head>
 <body>
-    
+    <!-- Header -->
+<header>
+  <a href="dashboard.html">
+    <img src="../Assets/PSL_bitlogo.pn" alt="PSL Logo" class="header-logo">
+  </a>
+  <h1>Study Progress</h1>
+</header>
+
+
+  <!-- Form Container -->
+  <div id="container">
+    <form>
+      <input type="number" placeholder="Core Study Hours" required>
+      <input type="number" placeholder="Number of MCQs Solved" required>
+      <input type="number" placeholder="Number of Pages Read" required>
+      <input type="number" placeholder="Hours Spent on Revision" required>
+      <input type="number" placeholder="% of Target Completed" required>
+      <!-- You can add more inputs here and the layout will remain responsive -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
