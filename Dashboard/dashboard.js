@@ -50,3 +50,13 @@ app.get("/", async (req, res) => {
 });
 
 app.listen(3030, () => console.log("Server running on http://localhost:3030"));
+
+
+   const user = JSON.parse(sessionStorage.getItem("psl_user"));
+    if (user) {
+      document.getElementById("userInfo").textContent =
+        `Email: ${user.email} | Roll No: ${user.rollNo} | Class: ${user.class}`;
+    } else {
+      // if no login data, go back
+      window.location.href = "login.html";
+    }
