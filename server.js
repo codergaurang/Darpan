@@ -1,52 +1,40 @@
 const express = require("express");
-const { google } = require("googleapis");
-
+const path = require("path");
 const app = express();
+const PORT = 3030;
 
-// Google Sheets setup
-const auth = new google.auth.GoogleAuth({
-  keyFile: "credentials.json", // service account credentials
-  scopes: "https://www.googleapis.com/auth/spreadsheets",
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Serve static files (CSS, JS, Images)
+app.use("/assets", express.static(path.join(__dirname, "Assets")));
+app.use("/login", express.static(path.join(__dirname, "Login")));
+app.use("/dashboard", express.static(path.join(__dirname, "Dashboard")));
+
+// Root route serves login page
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "Login", "login.html"));
 });
 
-const spreadsheetId = "1nKcJ-nAdDg58JTQ4C70ANCl9XQff6x3RdGTTvz_K6Sw";
 
-// Hardcoded search value
-const SEARCH_VALUE = "ndabhilasha.2025@gmail.com";
+// Handle login form submission
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
 
-// Root route: fetch all rows where column C matches SEARCH_VALUE
-app.get("/", async (req, res) => {
-  try {
-    const client = await auth.getClient();
-    const googleSheets = google.sheets({ version: "v4", auth: client });
-
-    // Fetch all rows
-    const getRows = await googleSheets.spreadsheets.values.get({
-      spreadsheetId,
-      range: "Sheet1",
-    });
-
-    const rows = getRows.data.values;
-
-    if (!rows || rows.length === 0) {
-      return res.json({ message: "No data found in the sheet." });
-    }
-
-    // Filter all rows where column C (index 2) matches SEARCH_VALUE
-    const filteredRows = rows.filter(
-      (row) => row[2] && row[2].toLowerCase() === SEARCH_VALUE.toLowerCase()
-    );
-
-    if (filteredRows.length === 0) {
-      return res.json({ message: `No rows found with column C = "${SEARCH_VALUE}"` });
-    }
-
-    // Return all filtered rows as JSON
-    res.json({ matchingRows: filteredRows });
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    res.status(500).json({ message: "Error fetching data from Google Sheets", error });
+  // Simple check (replace with real auth logic)
+  if (username === "admin" && password === "1234") {
+    // On success, send dashboard
+    res.sendFile(path.join(__dirname, "Dashboard", "dashboard.html"));
+  } else {
+    res.status(401).send("Login failed. Invalid username or password.");
   }
 });
 
-app.listen(3030, () => console.log("Server running on http://localhost:3030"));
+// Optional: dashboard route if accessed directly
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "Dashboard", "dashboard.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
