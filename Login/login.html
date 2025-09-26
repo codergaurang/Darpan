@@ -6,15 +6,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="login.css">
 </head>
-<body>
-  <div class="container">
-    <h2>Login</h2>
+<style>
+  /* Full Background */
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centers container in middle */
+  background: url("../Assets/MacBook Pro 16_ - 4.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
 
-    <!-- Optional logo slot -->
-    <!-- <div class="logo"><img src="../Assets/logo.png" alt="Site logo"></div> -->
+/* Main Container */
+#container {
+  width: 90%;
+  max-width: 400px;
+  min-height: 380px; /* ensures enough height */
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.176); /* semi transparent white */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertically centers inputs & logo */
+  align-items: center;      /* horizontally centers */
+  text-align: center;
+}
+
+/* Logo */
+.logo img {            /* bigger size */
+  height: auto;
+  margin-bottom: 25px;     /* spacing before inputs */
+  display: block;
+}
+
+/* Input fields */
+#container input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f5e6b8;   /* beige/cream like screenshot */
+  font-size: 15px;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Button */
+#container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #0b2c54;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#container button:hover {
+  background: #0d3c7b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #container {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  #container input,
+  #container button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+</style>
+<body>
+  <div id="container">
+   
+
+    <div class="logo"><img src="../Assets/PSL_logo.png" alt="Site logo"></div> 
 
     <form id="login-form" method="POST" action="/login" novalidate>
-      <label for="rollnumber" class="sr-only">Roll Number</label>
+      <label for="rollnumber" class="sr-only"></label>
       <input
         type="text"
         id="rollnumber"
@@ -25,7 +111,7 @@
         required
       >
 
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only"></label>
       <input
         type="password"
         id="password"
