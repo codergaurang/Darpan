@@ -32,7 +32,7 @@ app.post("/login", (req, res) => {
 
   if (user) {
     // 303 See Other ensures the client performs GET to the Location
-    return res.redirect(303, "/dashboard");
+    return res.redirect(303, `/dashboard?rollnumber=${encodeURIComponent(user.rollnumber)}`);
   }
 
   // Send JSON or HTML; the client can display an alert/toast
