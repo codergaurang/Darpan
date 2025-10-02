@@ -20,3 +20,4 @@ build/
 .cache/
 .next/
 out/
+Dashboard/darpan_db.json
